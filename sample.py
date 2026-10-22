@@ -1,2 +1,2 @@
-ss = "world"
+who = "world"
 print(f"Hello, {ss}!")
