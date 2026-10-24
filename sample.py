@@ -1,2 +1,2 @@
-ss = "world"
-print(f"Hello, {ss}!")
+whog = "world"
+print(f"Hello, {whog}!")
