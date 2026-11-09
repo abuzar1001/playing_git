@@ -8,19 +8,24 @@ client = OpenAI(
     api_key=os.getenv("api_key")
 )
 
-history = []
+conversation = {}
 
-while True:
-    user = input("User: ")
-    history.append({"role": "user", "content": user})
+def chatbot(user_id, input_text):
 
+    if user_id not in conversation:
+        conversation[user_id] = []
+
+    history = conversation[user_id]
+   
+    history.append({"role": "user", "content": input_text})
 
     response = client.responses.create(
         model="gpt-4o-mini",
-        messages=history)
-
+        input=history)
     
-    print(response.output_text)
+    res = response.output_text
 
-    history.append({"role": "assistant", "content": response.output_text})
+    history.append({"role": "assistant", "content": res})
+
+    return res
     
