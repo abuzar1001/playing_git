@@ -10,7 +10,7 @@ client = OpenAI(
 
 conversation = {}
 
-def chatbot(user_id, input_text):
+def chatbot(input_text, user_id):
 
     if user_id not in conversation:
         conversation[user_id] = []
